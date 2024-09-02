@@ -1,4 +1,9 @@
 // src/Shop.js
+import React from 'react';
+import axios from 'axios';
+import NavbarComponent from './components/NavbarComponent';
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+
 function Shop() {
   const products = [
     { id: 1, name: 'Product 1', price: '$10', image: 'https://via.placeholder.com/150' },
@@ -38,3 +43,5 @@ function Shop() {
     </div>
   );
 }
+
+export default Shop;
