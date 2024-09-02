@@ -1,15 +1,16 @@
 import React from 'react';
-import Button from 'react-bootstrap/esm/Button';
+import Button from 'react-bootstrap/Button';
+import NavbarComponent from './components/NavbarComponent';
 import { Link } from 'react-router-dom';
 
 function About() {
   return (
     <div>
-      <h1>About Page</h1>
-      <p>This is the about page of the web app.</p>
-      <Link to="/">
-      <Button variant="primary">Home</Button>
-      </Link>
+      <NavbarComponent />
+      <div className='text-center mt-5'>
+        <h1>About Us</h1>
+        <p>Sample text</p>
+      </div>
     </div>
   );
 }
