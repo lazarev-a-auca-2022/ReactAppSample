@@ -28,6 +28,21 @@
   color: #61dafb;
 }
 
+.green-button {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.green-button:hover {
+  background-color: darkgreen;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
