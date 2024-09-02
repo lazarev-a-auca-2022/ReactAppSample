@@ -12,7 +12,8 @@ root.render(
     <Router>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/about" element={<About />} /> {/* Define a new route */}
+        <Route path="/about"/> {/* Define a new route */}
+        <Route path="/shop" />
       </Routes>
     </Router>
   </React.StrictMode>
