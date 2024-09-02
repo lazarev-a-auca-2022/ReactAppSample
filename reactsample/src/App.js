@@ -9,6 +9,7 @@ function App() {
     <div>
       <NavbarComponent />
       <div className='text-center mt-5'>
+        <h1>Nigga</h1>
         <div className='d-flex justify-content-center align-items-center mx-auto' style={{ width: '800px', height: '400px' }}>
           <CarouselComponent />
         </div>

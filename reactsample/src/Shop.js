@@ -1,10 +1,4 @@
 // src/Shop.js
-import React from 'react';
-import NavbarComponent from './components/NavbarComponent';
-import { Card, Button, Container, Row, Col } from 'react-bootstrap';
-import axios from 'axios';
-import './App.css';
-
 function Shop() {
   const products = [
     { id: 1, name: 'Product 1', price: '$10', image: 'https://via.placeholder.com/150' },
@@ -14,7 +8,8 @@ function Shop() {
 
   const addToCart = async (product) => {
     try {
-      await axios.post('http://localhost:5000/api/cart', product);
+      const { id, ...productWithoutId } = product; // Exclude the id field
+      await axios.post('http://localhost:5000/api/cart', productWithoutId);
       alert(`${product.name} added to cart!`);
     } catch (error) {
       console.error('Error adding to cart:', error);
@@ -43,5 +38,3 @@ function Shop() {
     </div>
   );
 }
-
-export default Shop;

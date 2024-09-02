@@ -19,11 +19,11 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.post('/api/cart', async (req, res) => {
-  const { id, name, price, image } = req.body;
+  const { name, price, image } = req.body;
   try {
     const result = await pool.query(
-      'INSERT INTO cart (id, name, price, image) VALUES ($1, $2, $3, $4) RETURNING *',
-      [id, name, price, image]
+      'INSERT INTO cart (name, price, image) VALUES ($1, $2, $3) RETURNING *',
+      [name, price, image]
     );
     res.status(201).json(result.rows[0]);
   } catch (err) {
