@@ -7,9 +7,14 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>React initialized successfully</h1>
-        <Link to="/about">
-          <button className="green-button">Go to About Page</button>
-        </Link>
+        <nav>
+          <ul className="navbar">
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/shop">Shop</Link></li>
+            <li><Link to="/product">Product</Link></li>
+            <li><Link to="/contact">Contact Us</Link></li>
+          </ul>
+        </nav>
       </header>
     </div>
   );
