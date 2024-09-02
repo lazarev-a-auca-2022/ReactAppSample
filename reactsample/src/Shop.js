@@ -1,18 +1,37 @@
+// src/Shop.js
 import React from 'react';
-import Button from 'react-bootstrap/Button';
 import NavbarComponent from './components/NavbarComponent';
-import { Link } from 'react-router-dom';
+import { Card, Button, Container, Row, Col } from 'react-bootstrap';
+import './App.css';
 
-function About() {
+function Shop() {
+  const products = [
+    { id: 1, name: 'Product 1', price: '$10', image: 'https://via.placeholder.com/150' },
+    { id: 2, name: 'Product 2', price: '$20', image: 'https://via.placeholder.com/150' },
+    { id: 3, name: 'Product 3', price: '$30', image: 'https://via.placeholder.com/150' },
+  ];
+
   return (
     <div>
       <NavbarComponent />
-      <div className='text-center mt-5'>
-        <h1>Shop</h1>
-        <p>Sample text</p>
-      </div>
+      <Container className="mt-5">
+        <Row>
+          {products.map(product => (
+            <Col key={product.id} sm={12} md={6} lg={4} className="mb-4">
+              <Card>
+                <Card.Img variant="top" src={product.image} />
+                <Card.Body>
+                  <Card.Title>{product.name}</Card.Title>
+                  <Card.Text>{product.price}</Card.Text>
+                  <Button variant="primary">Add to Cart</Button>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </Container>
     </div>
   );
 }
 
-export default About;
+export default Shop;
