@@ -12,7 +12,7 @@ const pool = new Pool({
   host: 'db',
   database: 'shopdb',
   password: 'password',
-  port: 5432,
+  port: 5432, // Ensure this matches the port in docker-compose.yml
 });
 
 app.use(cors());
