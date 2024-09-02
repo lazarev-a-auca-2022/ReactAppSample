@@ -1,20 +1,17 @@
-# Use an official Node.js runtime as a parent image
-FROM node:18-alpine
+# Dockerfile
+FROM node:14
 
-# Set the working directory
+# Create app directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json
-COPY package*.json ./
-
-# Install dependencies
+# Install app dependencies
+COPY package.json ./
+COPY package-lock.json ./
 RUN npm install
 
-# Copy the rest of the application code
+# Bundle app source
 COPY . .
 
-# Expose port 3000
+# Expose port and start the application
 EXPOSE 3000
-
-# Start the React app
 CMD ["npm", "start"]
