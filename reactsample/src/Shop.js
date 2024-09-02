@@ -1,10 +1,13 @@
 // src/Shop.js
 import React from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import NavbarComponent from './components/NavbarComponent';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 
 function Shop() {
+  const navigate = useNavigate();
+
   const products = [
     { id: 1, name: 'Product 1', price: '$10', image: 'https://via.placeholder.com/150' },
     { id: 2, name: 'Product 2', price: '$20', image: 'https://via.placeholder.com/150' },
@@ -16,6 +19,7 @@ function Shop() {
       const { id, ...productWithoutId } = product; // Exclude the id field
       await axios.post('http://localhost:5000/api/cart', productWithoutId);
       alert(`${product.name} added to cart!`);
+      navigate('/cart'); // Navigate to the cart page
     } catch (error) {
       console.error('Error adding to cart:', error);
     }

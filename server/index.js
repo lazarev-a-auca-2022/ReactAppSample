@@ -18,6 +18,7 @@ const pool = new Pool({
 app.use(cors());
 app.use(bodyParser.json());
 
+
 app.post('/api/cart', async (req, res) => {
   const { name, price, image } = req.body;
   try {
