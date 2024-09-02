@@ -17,11 +17,13 @@ function Shop() {
   const addToCart = async (product) => {
     try {
       const { id, ...productWithoutId } = product; // Exclude the id field
-      await axios.post('http://localhost:5000/api/cart', productWithoutId);
+      const response = await axios.post('http://localhost:5000/api/cart', productWithoutId);
+      console.log('Add to cart response:', response.data); // Add this line
       alert(`${product.name} added to cart!`);
       navigate('/cart'); // Navigate to the cart page
     } catch (error) {
       console.error('Error adding to cart:', error);
+      alert('Failed to add product to cart. Please try again.');
     }
   };
 
