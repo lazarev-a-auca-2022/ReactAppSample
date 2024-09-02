@@ -1,14 +1,18 @@
 version: '3.8'
-
 services:
-  web:
-    image: nginx
-  reactapp:
-    build: .
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
-    volumes:
-      - .:/app
-      - /app/node_modules
+    depends_on:
+      - db
+  db:
+    image: postgres:13
     environment:
-      - CHOKIDAR_USEPOLLING=true
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: shopdb
+    ports:
+      - "5432:5432"
