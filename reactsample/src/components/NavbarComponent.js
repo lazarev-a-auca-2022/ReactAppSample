@@ -17,6 +17,7 @@ function NavbarComponent() {
             <Nav.Link as={Link} to="/"><h3>Home</h3></Nav.Link>
             <Nav.Link as={Link} to="/shop"><h3>Shop</h3></Nav.Link>
             <Nav.Link as={Link} to="/about"><h3>About us</h3></Nav.Link>
+            <Nav.Link as={Link} to="/cart"><h3>Cart</h3></Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

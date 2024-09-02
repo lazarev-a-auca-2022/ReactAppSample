@@ -2,6 +2,7 @@
 import React from 'react';
 import NavbarComponent from './components/NavbarComponent';
 import { Card, Button, Container, Row, Col } from 'react-bootstrap';
+import axios from 'axios';
 import './App.css';
 
 function Shop() {
@@ -10,6 +11,15 @@ function Shop() {
     { id: 2, name: 'Product 2', price: '$20', image: 'https://via.placeholder.com/150' },
     { id: 3, name: 'Product 3', price: '$30', image: 'https://via.placeholder.com/150' },
   ];
+
+  const addToCart = async (product) => {
+    try {
+      await axios.post('http://localhost:5000/api/cart', product);
+      alert(`${product.name} added to cart!`);
+    } catch (error) {
+      console.error('Error adding to cart:', error);
+    }
+  };
 
   return (
     <div>
@@ -23,7 +33,7 @@ function Shop() {
                 <Card.Body>
                   <Card.Title>{product.name}</Card.Title>
                   <Card.Text>{product.price}</Card.Text>
-                  <Button variant="primary">Add to Cart</Button>
+                  <Button variant="primary" onClick={() => addToCart(product)}>Add to Cart</Button>
                 </Card.Body>
               </Card>
             </Col>
