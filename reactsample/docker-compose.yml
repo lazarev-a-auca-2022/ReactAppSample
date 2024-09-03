@@ -18,7 +18,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./server/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - ../server/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U user -d shopdb"]
       interval: 10s
